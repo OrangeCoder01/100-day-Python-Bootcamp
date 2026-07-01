@@ -1,3 +1,5 @@
+#Angela Yu's 100 Day python bootcamp: Day 3 Project: Treasure Island
+
 print("Please enter your name:")
 name = input()
 
@@ -339,7 +341,7 @@ if user_choice == "Yes":
      \\      \\      \\      \\       \\       \\leb
       V       V       V       V        V        V'''
     print(ascci_art)
-    exit
+    exit()
 else:
     print("You ran away as fast as you can from the snake")
     ascci_art = '''      ,////,
@@ -403,10 +405,13 @@ print("I don't want to be alone")
 user_enter = input()
 print("Come, come ... here you find company, and shelter, don't you want to stay and a good night sleep, said king Krab")
 user_enter = input()
+print("")
 
-user_choice = input("Are you willing to sleep (Yes or No)")
-if user_choice == "Yes":
-    ascci_art = r'''                     (
+second_user_choice = input("Are you willing to sleep (Yes or No): ")
+if second_user_choice == "Yes":
+  
+    ascci_art = r'''                     
+                    (
                   )    )
                _.(--"("""--.._
               /, _..-----).._,\
@@ -419,11 +424,12 @@ if user_choice == "Yes":
                 ___           .-""-.
                /   ''---...-'.'  `\\
           jgs  \___...---"""-._-.__//
-                               '---'''
+                               '---
+                               '''
     print("You were sleeping on a cauldron customized as a bed!")
     print("You are left simmerded and eaten as a warm protein-rich soup")
     print(ascci_art)
-    exit
+    exit()
 else:
     print("You ran as the lighting bolt")
 
