@@ -1,5 +1,6 @@
 import random
 
+## IMPORTANT:# These ASCII art are from { wynand1004 / RPS_ASCII_Art.py }
 
 # 0 for rock, 1 for paper, 2 for scissors
 
