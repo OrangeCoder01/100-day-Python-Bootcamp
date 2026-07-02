@@ -1,12 +1,31 @@
+ascii_art = r'''                                                                             
+ ▄   ▄▄▄▄                                 ▄   ▄▄▄▄                           
+ ▀██████▀                                 ▀██████▀          █▄               
+   ██                             ▄         ██     ▀▀       ██          ▄    
+   ██     ▄▀▀█▄ ▄█▀█▄ ▄██▀█ ▄▀▀█▄ ████▄     ██     ██ ████▄ ████▄ ▄█▀█▄ ████▄
+   ██     ▄█▀██ ██▄█▀ ▀███▄ ▄█▀██ ██        ██     ██ ██ ██ ██ ██ ██▄█▀ ██   
+   ▀█████▄▀█▄██▄▀█▄▄▄█▄▄██▀▄▀█▄██▄█▀        ▀█████▄██▄████▀▄██ ██▄▀█▄▄▄▄█▀   
+                                                      ██                     
+                                                      ▀                      ''' # From {Text to ascii art generator}
 letter_ascii = []
 for i in range(65, 91, 1): #Upper Case Letter
-    letter_ascii.append(chr(i))
+    letter_ascii.append(i)
 
 for i in range(97,123 ,1): #Lower Case Letter
-    letter_ascii.append(chr(i))
+    letter_ascii.append(i)
 
-letter_ascii.append(" ")
-    
+symbol_ascii = []
+for i in range(32, 188, 1):
+    if i not in letter_ascii:
+        symbol_ascii.append(i) 
+
+letter_char = []
+for element in letter_ascii:
+    letter_char.append(chr(element))
+
+symbol_char = []
+for element in symbol_ascii:
+    symbol_char.append(chr(element))
 
 
 def user_validation():
@@ -24,7 +43,7 @@ def user_validation():
         is_message_valid = True
         message = input("\nType your message: ")
         for char in message:
-            if char not in letter_ascii:
+            if (char not in letter_char) and (char not in symbol_char):
                 is_message_valid = is_message_valid and False
                 break
         if not is_message_valid:
@@ -51,8 +70,6 @@ def user_validation():
 
 
 
-
-
 def mapping_the_shifting(message, shifting):
 
     output = []
@@ -62,22 +79,22 @@ def mapping_the_shifting(message, shifting):
 
     for i in range(len(output)):
         element = output[i]
-        if element != 32: # Ascii decimal equivalent for space
-            if 65 <= element <= 90:
-                element += shifting
+        if element in letter_ascii:
+                if 65 <= element <= 90:
+                    element += shifting
 
-                if element > 90:
-                    element -= 26
-                elif element < 65:
-                    element += 26
+                    if element > 90:
+                        element -= 26
+                    elif element < 65:
+                        element += 26
 
-            elif 97 <= element <= 122:
-                element += shifting
+                elif 97 <= element <= 122:
+                    element += shifting
 
-                if element > 122:
-                    element -= 26
-                elif element < 97:
-                    element += 26
+                    if element > 122:
+                        element -= 26
+                    elif element < 97:
+                        element += 26
 
         output[i] = element
 
@@ -103,8 +120,10 @@ def caesar_cipher():
 
 def endless_user_input_looping():
     choice = "yes"
+    print(ascii_art)
     while True:
         if choice == "yes":
+  
             caesar_cipher()
         
         choice = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n").lower()
@@ -119,10 +138,3 @@ def endless_user_input_looping():
             
 
 endless_user_input_looping()
-
-    
-    
-    
-    
-
-    
